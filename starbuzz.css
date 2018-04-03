@@ -1,31 +1,46 @@
-body { 
+body {
   background-color: #b5a789;
   font-family:      Georgia, "Times New Roman", Times, serif;
   font-size:        small;
   margin:           0px;
 }
 
-/* 
+/*
 	height messes up the headers in the blog in the articles
 	it's only appropriate for the top header.
 	add a class (new with blog)
 	Affects the 3 #header rules for the main header below
 	In HTML: add class="top" to main header in index.html and blog.html
 */
+div#gridContainer {
+  display: grid;
+  margin: 30px 10px 30px 10px;
+	border-spacing: 10px;
+  grid-template-areas:
+  "header   header   header"
+  "nav    nav    nav"
+  "drinks     main    aside"
+  "footer   footer   footer";
+}
+
 
 header.top {
+  grid-area: header;
   background-color: #675c47;
   margin: 10px 10px 0px 10px;
+  padding: 10px 30px 10px 30px;
   height:           108px;
 }
 
 header.top img#headerSlogan {
-	float: right;
+
+  float: right;
 }
 
 
 /* nav new in blog */
 nav {
+  grid-area: nav;
 	background-color: #efe5d0;
 	margin: 10px 10px 10px 10px;
 }
@@ -39,40 +54,40 @@ nav ul li {
 	padding: 5px 10px 5px 10px;
 }
 
-/*
-div#gridContainer {
-	border-spacing: 10px;
-	...
-}
-*/
+
+
 
 section#drinks {
+  grid-area: drinks;
     background-color: #efe5d0;
-    width: 20%;
-    padding: 15px;
     vertical-align: top;
+    width: 93%;
+    padding: 15px;
+
 }
 
 section#main {
+  grid-area: main;
   background:       #efe5d0 url(images/background.gif) top left;
   font-size:        105%;
-  padding:          15px;
+  padding: 15px;
   vertical-align: top;
 }
 
 aside {
+  grid-area:aside;
   background:       #efe5d0 url(images/background.gif) bottom right;
   font-size:        105%;
-  padding:          15px;
   vertical-align: top;
+  width: 93%;
 }
 
 footer {
+  grid-area:footer;
   background-color: #675c47;
   color:            #efe5d0;
   text-align:       center;
   padding:          15px;
-  margin: 0px 10px 10px 10px;
   font-size:        90%;
 }
 
@@ -88,6 +103,10 @@ h2 { font-size: 110%; }
 .beanheading {
   text-align:       center;
   line-height:      1.8em;
+  width: 93%;
+  padding: 15px;
+
+
 }
 
 a:link {
@@ -111,7 +130,7 @@ nav ul li a:link, nav ul li a:visited {
 	font-weight: bold;
 
 	/* optional! very hard to see although does help */
-	text-shadow: 1px 1px 3px #e2c2c2; 
+	text-shadow: 1px 1px 3px #e2c2c2;
 
 	/* try this and see if you like it */
 	text-transform: uppercase;
